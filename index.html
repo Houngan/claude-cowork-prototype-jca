@@ -6,12 +6,11 @@
   <title>Prototype Claude Cowork - JCA</title>
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🧭</text></svg>'>
   <style>
-
     :root {
   --bg: #ffffff;
-  --bg-soft: #f6fafc;
+  --bg-soft: #f7f4fa;
   --surface: #ffffff;
-  --surface-soft: #f8fbfd;
+  --surface-soft: #fbf8fd;
 
   --black: #05070d;
   --ink: #0b1220;
@@ -19,21 +18,21 @@
   --text-soft: #334155;
   --muted: #64748b;
 
-  --accent: #13c8a3;
-  --accent-2: #18a7d8;
-  --accent-soft: rgba(19, 200, 163, 0.12);
-  --accent-border: rgba(19, 200, 163, 0.34);
+  --accent: #CFAFE7;
+  --accent-2: #8C6AA8;
+  --accent-soft: rgba(207, 175, 231, 0.22);
+  --accent-border: rgba(140, 106, 168, 0.42);
 
-  --border: #d8e2ec;
-  --border-strong: #b7c8da;
+  --border: #ded8e6;
+  --border-strong: #c9bdd4;
 
   --code-bg: #05070d;
   --code-bg-2: #09111f;
   --code-text: #f4f0ff;
   --code-muted: #d8d2ff;
-  --code-border: rgba(19, 200, 163, 0.32);
+  --code-border: rgba(207, 175, 231, 0.38);
 
-  --success: #0f766e;
+  --success: #8C6AA8;
 
   --shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
   --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.07);
@@ -60,9 +59,9 @@ body {
   color: var(--text);
   line-height: 1.6;
   background:
-    radial-gradient(circle at top left, rgba(19, 200, 163, 0.12), transparent 28rem),
-    radial-gradient(circle at top right, rgba(24, 167, 216, 0.10), transparent 30rem),
-    linear-gradient(180deg, #ffffff 0%, #ffffff 48%, #f6fafc 100%);
+    radial-gradient(circle at top left, rgba(207, 175, 231, 0.20), transparent 28rem),
+    radial-gradient(circle at top right, rgba(140, 106, 168, 0.12), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 48%, #f7f4fa 100%);
 }
 
 .wrap {
@@ -78,9 +77,9 @@ header {
   padding: 46px 0 30px;
   color: #ffffff;
   background:
-    radial-gradient(circle at 78% 18%, rgba(19, 200, 163, 0.30), transparent 25rem),
-    linear-gradient(135deg, #05070d 0%, #07111f 58%, #102235 100%);
-  border-bottom: 1px solid rgba(19, 200, 163, 0.28);
+    radial-gradient(circle at 78% 18%, rgba(207, 175, 231, 0.30), transparent 25rem),
+    linear-gradient(135deg, #05070d 0%, #07111f 58%, #151124 100%);
+  border-bottom: 1px solid rgba(207, 175, 231, 0.34);
 }
 
 header::after {
@@ -88,7 +87,7 @@ header::after {
   position: absolute;
   inset: auto 0 0 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(19, 200, 163, 0.9), transparent);
+  background: linear-gradient(90deg, transparent, rgba(207, 175, 231, 0.95), transparent);
 }
 
 header .wrap {
@@ -110,7 +109,7 @@ h1 {
 .subtitle {
   margin: 0;
   max-width: 760px;
-  color: #e8f4ff;
+  color: #f2eaff;
   font-size: clamp(17px, 2vw, 21px);
   letter-spacing: -0.02em;
 }
@@ -169,17 +168,18 @@ nav {
 
 .nav-grid a:hover {
   transform: translateY(-1px);
-  color: #041312;
+  color: var(--black);
   border-color: var(--accent-border);
   background: var(--accent-soft);
-  box-shadow: 0 0 0 4px rgba(19, 200, 163, 0.10);
+  box-shadow: 0 0 0 4px rgba(207, 175, 231, 0.22);
 }
 
+/* État persistant après clic sur Copier */
 .nav-grid a.nav-copied {
   color: #ffffff;
-  background: linear-gradient(135deg, var(--black), #0b1728);
+  background: linear-gradient(135deg, var(--black), var(--accent-2));
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(19, 200, 163, 0.22);
+  box-shadow: 0 0 0 4px rgba(207, 175, 231, 0.28);
 }
 
 /* MAIN */
@@ -205,7 +205,7 @@ main {
   position: absolute;
   inset: 0 0 auto 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--black), var(--accent), var(--accent-2));
+  background: linear-gradient(90deg, var(--black), var(--accent-2), var(--accent));
   opacity: 0.95;
 }
 
@@ -266,7 +266,7 @@ strong {
   border: 1px solid var(--accent-border);
   border-radius: var(--radius-xl);
   background:
-    radial-gradient(circle at top left, rgba(19, 200, 163, 0.12), transparent 22rem),
+    radial-gradient(circle at top left, rgba(207, 175, 231, 0.20), transparent 22rem),
     linear-gradient(180deg, #ffffff, #ffffff);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
@@ -300,15 +300,15 @@ strong {
   height: 26px;
   font-size: 17px;
   border-radius: 50%;
-  background: rgba(19, 200, 163, 0.12);
-  border: 1px solid rgba(19, 200, 163, 0.22);
+  background: rgba(207, 175, 231, 0.22);
+  border: 1px solid rgba(140, 106, 168, 0.22);
 }
 
 .workflow-arrow {
-  color: var(--black);
+  color: var(--accent-2);
   font-weight: 950;
   font-size: 18px;
-  opacity: 0.72;
+  opacity: 0.82;
 }
 
 /* PROMPTS — blanc/lavande sur noir */
@@ -328,9 +328,9 @@ strong {
   justify-content: space-between;
   gap: 16px;
   padding: 13px 14px;
-  border-bottom: 1px solid rgba(19, 200, 163, 0.28);
+  border-bottom: 1px solid rgba(207, 175, 231, 0.34);
   background:
-    linear-gradient(90deg, rgba(19, 200, 163, 0.16), rgba(24, 167, 216, 0.10)),
+    linear-gradient(90deg, rgba(207, 175, 231, 0.18), rgba(140, 106, 168, 0.16)),
     #09111f;
 }
 
@@ -344,13 +344,13 @@ strong {
   min-height: 36px;
   padding: 8px 13px;
   cursor: pointer;
-  color: #041312;
+  color: var(--black);
   font-size: 14px;
   font-weight: 900;
   border: 0;
   border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 8px 20px rgba(19, 200, 163, 0.28);
+  background: linear-gradient(135deg, var(--accent), #efe2ff);
+  box-shadow: 0 8px 20px rgba(140, 106, 168, 0.24);
   transition:
     transform 150ms ease,
     filter 150ms ease,
@@ -359,8 +359,8 @@ strong {
 
 .copy-btn:hover {
   transform: translateY(-1px);
-  filter: brightness(1.05);
-  box-shadow: 0 10px 28px rgba(19, 200, 163, 0.36);
+  filter: brightness(1.03);
+  box-shadow: 0 10px 28px rgba(140, 106, 168, 0.32);
 }
 
 .copy-btn:active {
@@ -369,8 +369,8 @@ strong {
 
 .copy-btn.copied {
   color: #ffffff;
-  background: linear-gradient(135deg, var(--black), #0b1728);
-  box-shadow: 0 0 0 4px rgba(19, 200, 163, 0.22);
+  background: linear-gradient(135deg, var(--accent-2), var(--black));
+  box-shadow: 0 0 0 4px rgba(207, 175, 231, 0.28);
 }
 
 pre.prompt {
@@ -379,7 +379,7 @@ pre.prompt {
   overflow: auto;
   color: var(--code-text);
   background:
-    radial-gradient(circle at top right, rgba(19, 200, 163, 0.10), transparent 18rem),
+    radial-gradient(circle at top right, rgba(207, 175, 231, 0.12), transparent 18rem),
     linear-gradient(180deg, var(--code-bg-2), var(--code-bg));
   font-size: 14px;
   line-height: 1.58;
@@ -406,7 +406,7 @@ footer {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid rgba(19, 200, 163, 0.62);
+  outline: 3px solid rgba(207, 175, 231, 0.70);
   outline-offset: 3px;
 }
 
